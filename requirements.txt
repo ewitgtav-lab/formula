@@ -1,3 +1,5 @@
 streamlit
 pandas
 st-copy-to-clipboard
+fuzzywuzzy
+python-Levenshtein
