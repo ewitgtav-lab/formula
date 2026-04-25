@@ -665,6 +665,9 @@ def main() -> None:
         st.write(f"**Favorites:** {len(st.session_state.favorites)}")
         st.write(f"**Library size:** {len(df)} formulas")
         st.caption(f"Versions in library: {', '.join(versions)}")
+        st.divider()
+        st.subheader("Support")
+        st.link_button("Buy me a coffee", "https://paypal.me/GewishCatedrilla")
 
     filtered = df[df["Category"].isin(selected_categories)].copy()
     if o365_only:
