@@ -643,7 +643,11 @@ def main() -> None:
         st.markdown(f"**{fod['Name']}** — {fod['Tagline']}")
         st.code(str(fod["Syntax"]), language="text")
         st.markdown(str(fod["Description"]))
-        st_copy_to_clipboard(str(fod["Example_Formula"]), "Copy example")
+        st_copy_to_clipboard(
+            str(fod["Example_Formula"]),
+            "Copy example",
+            key=f"copy_fod_{_dt.date.today().isoformat()}_{fod['Name']}",
+        )
 
     st.divider()
 
@@ -731,7 +735,7 @@ def main() -> None:
 
             actions = st.columns([1, 2])
             with actions[0]:
-                st_copy_to_clipboard(example, "Copy example")
+                st_copy_to_clipboard(example, "Copy example", key=f"copy_{name}")
             with actions[1]:
                 share_url = f"?formula={quote_plus(name)}"
                 st.caption(f"Deep link: `{share_url}`")
